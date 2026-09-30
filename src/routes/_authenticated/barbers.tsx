@@ -30,7 +30,7 @@ function BarbersShell() {
     supabase.auth.getUser().then(({ data }) => setUser(data.user ?? null));
   }, []);
 
-  const isBarber = user?.user_metadata?.role === "shop";
+  const isBarber = user?.user_metadata?.["role"] === "shop";
 
   async function handleSignOut() {
     await supabase.auth.signOut();
